@@ -2,7 +2,7 @@ package com.example.grupo3.ProyectoDBD.models;
 
 import java.util.Date;
 
-public class Reseña{
+public class Reseña {
     private Integer id_usuario;
     private Integer id_libro;
     private Integer nota;
@@ -17,7 +17,7 @@ public class Reseña{
         this.fecha = fecha;
     }
 
-    public Reseña(){
+    public Reseña() {
 
     }
 

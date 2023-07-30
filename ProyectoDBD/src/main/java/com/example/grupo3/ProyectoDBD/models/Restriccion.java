@@ -1,6 +1,6 @@
 package com.example.grupo3.ProyectoDBD.models;
 
-public class Restriccion{
+public class Restriccion {
     private Integer id_restriccion;
     private Integer edad_minima;
 
@@ -9,7 +9,7 @@ public class Restriccion{
         this.edad_minima = edad_minima;
     }
 
-    public Restriccion(){
+    public Restriccion() {
 
     }
 
