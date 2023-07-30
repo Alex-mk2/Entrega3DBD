@@ -1,6 +1,6 @@
 package com.example.grupo3.ProyectoDBD.models;
 
-public class Metodo_Pago {
+public class Metodo_Pago{
     private Integer id_metodo_pago;
 
     private String tipo_pago;
