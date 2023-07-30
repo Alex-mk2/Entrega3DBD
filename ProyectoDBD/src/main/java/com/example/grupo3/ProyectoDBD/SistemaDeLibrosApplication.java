@@ -9,5 +9,4 @@ public class SistemaDeLibrosApplication {
     public static void main(String[] args) {
         SpringApplication.run(SistemaDeLibrosApplication.class, args);
     }
-
 }

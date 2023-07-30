@@ -15,7 +15,7 @@ public class BoletaRepositoryImp implements BoletaRepository {
     public Boleta create(Boleta newBoleta) {
         try (Connection conn = sql2o.open()) {
             String sql = "INSERT INTO Boleta (id_boleta,fecha_pago,resumen_compra,total_pagado,id_carro,id_usuario)" +
-                    "VALUES (:id_boleta, :fecha_pago, :resumen_compra, :total_pagado, :id_carro, ;id_usuario)";
+                    "VALUES (:id_boleta, :fecha_pago, :resumen_compra, :total_pagado, :id_carro, :id_usuario)";
             conn.createQuery(sql, true)
                     .addParameter("id_boleta", newBoleta.getId_boleta())
                     .addParameter("fecha_pago", newBoleta.getFecha_pago())
@@ -24,7 +24,7 @@ public class BoletaRepositoryImp implements BoletaRepository {
                     .addParameter("id_carro", newBoleta.getId_carro())
                     .addParameter("id_usuario", newBoleta.getId_usuario())
                     .executeUpdate();
-            return Boleta;
+            return newBoleta;
         } catch (Exception e){
             System.out.println(e.getMessage());
             return null;
