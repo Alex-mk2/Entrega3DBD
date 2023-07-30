@@ -37,7 +37,7 @@ public class Reseña {
         this.id_libro = id_libro;
     }
 
-    public int getNota() {
+    public Integer getNota() {
         return nota;
     }
 

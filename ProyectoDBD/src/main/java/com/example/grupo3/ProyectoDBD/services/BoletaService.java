@@ -14,7 +14,8 @@ public class BoletaService {
     //create
     @PostMapping("/boleta")
     @ResponseBody
-    public Boleta create(@RequestBody Boleta boleta){
-        return boletaRepository.create(boleta);
+    public Boleta create(@RequestBody Boleta Boleta){
+        Boleta resultado = boletaRepository.create(Boleta);
+        return resultado;
     }
 }

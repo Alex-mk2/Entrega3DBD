@@ -12,22 +12,22 @@ public class Boleta {
 
     private Integer total_pagado;
 
-    private Integer id_carro;
+    private Integer id_carrito;
 
     private Integer id_usuario;
 
     // Constructor
-    public Boleta(Integer id_boleta, Date fecha_pago, String resumen_compra, Integer total_pagado, Integer id_carro, Integer id_usuario) {
+    public Boleta(Integer id_boleta, Date fecha_pago, String resumen_compra, Integer total_pagado, Integer id_carrito, Integer id_usuario) {
         this.id_boleta = id_boleta;
         this.fecha_pago = fecha_pago;
         this.resumen_compra = resumen_compra;
         this.total_pagado = total_pagado;
-        this.id_carro = id_carro;
+        this.id_carrito = id_carrito;
         this.id_usuario = id_usuario;
     }
 
-    public Boleta() {
-    }
+    //public Boleta() {
+    //}
 
     //Getters
     public Integer getId_boleta() {
@@ -63,12 +63,12 @@ public class Boleta {
         this.total_pagado = total_pagado;
     }
 
-    public Integer getId_carro() {
-        return id_carro;
+    public Integer getId_carrito() {
+        return id_carrito;
     }
 
-    public void setId_carro(Integer id_carro) {
-        this.id_carro = id_carro;
+    public void setId_carrito(Integer id_carrito) {
+        this.id_carrito = id_carrito;
     }
 
     public Integer getId_usuario() {

@@ -12,24 +12,22 @@ public class BoletaRepositoryImp implements BoletaRepository {
     private Sql2o sql2o;
 
     @Override
-    public Boleta create(Boleta newBoleta) {
+    public Boleta create(Boleta Boleta) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INSERT INTO Boleta (id_boleta,fecha_pago,resumen_compra,total_pagado,id_carro,id_usuario)" +
-                    "VALUES (:id_boleta, :fecha_pago, :resumen_compra, :total_pagado, :id_carro, :id_usuario)";
+            String sql = "INSERT INTO Boleta (id_boleta,fecha_pago,resumen_compra,total_pagado,id_carrito,id_usuario)" +
+                    "VALUES (:id_boleta, :fecha_pago, :resumen_compra, :total_pagado, :id_carrito, :id_usuario)";
             conn.createQuery(sql, true)
-                    .addParameter("id_boleta", newBoleta.getId_boleta())
-                    .addParameter("fecha_pago", newBoleta.getFecha_pago())
-                    .addParameter("resumen_compra", newBoleta.getResumen_compra())
-                    .addParameter("total_pagado", newBoleta.getTotal_pagado())
-                    .addParameter("id_carro", newBoleta.getId_carro())
-                    .addParameter("id_usuario", newBoleta.getId_usuario())
+                    .addParameter("id_boleta", Boleta.getId_boleta())
+                    .addParameter("fecha_pago", Boleta.getFecha_pago())
+                    .addParameter("resumen_compra", Boleta.getResumen_compra())
+                    .addParameter("total_pagado", Boleta.getTotal_pagado())
+                    .addParameter("id_carrito", Boleta.getId_carrito())
+                    .addParameter("id_usuario", Boleta.getId_usuario())
                     .executeUpdate();
-            return newBoleta;
+                    return Boleta;
         } catch (Exception e){
             System.out.println(e.getMessage());
             return null;
         }
     }
-
-
 }
