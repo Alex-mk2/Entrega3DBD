@@ -24,10 +24,12 @@ public class BoletaRepositoryImp implements BoletaRepository {
                     .addParameter("id_carro", newBoleta.getId_carro())
                     .addParameter("id_usuario", newBoleta.getId_usuario())
                     .executeUpdate();
-            return Boleta;
+            return newBoleta;
         } catch (Exception e){
             System.out.println(e.getMessage());
             return null;
         }
     }
+
+
 }
