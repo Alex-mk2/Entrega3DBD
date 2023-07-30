@@ -36,7 +36,7 @@ public class BoletaRepositoryImp implements BoletaRepository {
     @Override
     public List<Boleta> getAll() {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("SELEC * FROM Boleta ORDER BY fecha_pago ASC")
+            return conn.createQuery("SELECT * FROM Boleta ORDER BY fecha_pago ASC")
                     .executeAndFetch(Boleta.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
