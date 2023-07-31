@@ -10,14 +10,14 @@ public class Usuario {
 
     private String correo;
 
-    private String contraseña;
+    private String contrasena;
 
     //Contructor
-    public Usuario(Integer id_usuario, String nombre, String correo, String contraseña, String telefono, Date fecha_nacimiento, Integer id_ubicacion) {
+    public Usuario(Integer id_usuario, String nombre, String correo, String contrasena, String telefono, Date fecha_nacimiento, Integer id_ubicacion) {
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.telefono = telefono;
         this.fecha_nacimiento = fecha_nacimiento;
         this.id_ubicacion = id_ubicacion;
@@ -48,12 +48,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getTelefono() {
