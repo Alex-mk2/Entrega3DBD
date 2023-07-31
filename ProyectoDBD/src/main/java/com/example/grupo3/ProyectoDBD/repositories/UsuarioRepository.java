@@ -8,5 +8,4 @@ public interface UsuarioRepository {
     public Usuario create(Usuario usuario);
 
     public List<Usuario>getAll();
-
 }

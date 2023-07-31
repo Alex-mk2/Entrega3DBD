@@ -7,17 +7,17 @@ import org.sql2o.Sql2o;
 
 @Configuration
 public class DatabaseContext {
-    @Value("${database.url}")
+    @Value("jdbc:postgresql://localhost:5432/sistema_libro_spring")
     private String dbUrl;
 
-    @Value("${database.user}")
+    @Value("postgres")
     private String dbUser;
 
-    @Value("${database.password}")
+    @Value("Moises17g")
     private String dbPass;
 
     @Bean
-    public Sql2o sql2o(){
-        return new Sql2o(dbUrl,dbUser,dbPass);
+    public Sql2o sql2o() {
+        return new Sql2o(dbUrl, dbUser, dbPass);
     }
 }
