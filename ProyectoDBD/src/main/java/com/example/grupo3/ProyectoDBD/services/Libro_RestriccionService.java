@@ -13,7 +13,7 @@ public class Libro_RestriccionService{
     }
 
     //Crear Restriccion Libro//
-    @PostMapping("/Libro_Restriccion/")
+    @PostMapping("/Restriccion_Libro/")
     @ResponseBody
     public Libro_Restriccion create(Libro_Restriccion Libro_Restriccion) {
         Libro_Restriccion newLibro_Restriccion = libro_restriccionRepository.create(Libro_Restriccion);
@@ -26,7 +26,7 @@ public class Libro_RestriccionService{
 
     }
     //Mostrar una restriccion de un libro//
-    @GetMapping("/Restriccion/{id_libro}")
+    @GetMapping("/Restriccion_Libro/{id_libro}")
     public List<Libro_Restriccion> Show(@PathVariable Integer id_libro){
         return libro_restriccionRepository.Show(id_libro);
     }

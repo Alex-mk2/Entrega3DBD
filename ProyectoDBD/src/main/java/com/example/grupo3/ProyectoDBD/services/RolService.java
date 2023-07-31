@@ -38,9 +38,9 @@ public class RolService{
         return newRol;
     }
 
-    //Eliminar Restriccion//
-    @DeleteMapping("/Reseña/{id_restriccion}")
-    public void delete(@PathVariable Integer id_restriccion){
-        rolRepository.delete(id_restriccion);
+    //Eliminar Rol//
+    @DeleteMapping("/Rol/{id_rol}")
+    public void delete(@PathVariable Integer id_rol){
+        rolRepository.delete(id_rol);
     }
 }

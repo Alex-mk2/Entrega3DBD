@@ -14,24 +14,24 @@ public class SesionRepositoryImp implements SesionRepository {
     private Sql2o sql2o;
 
     @Override
-    public Sesion create(Sesion sesion) {
+    public Sesion create(Sesion Sesion) {
         try(Connection conn = sql2o.open()){
             String sql = "INSERT INTO Sesion (id_sesion,id_usuario,inicio_sesion,fin_sesion)" +
                     "VALUES (:id_sesion,:id_usuario,:inicio_sesion,:fin_sesion)";
             conn.createQuery(sql, true)
-                    .addParameter("id_sesion", sesion.getId_sesion())
-                    .addParameter("id_usuario", sesion.getId_usuario())
-                    .addParameter("inicio_sesion", sesion.getInicio_sesion())
-                    .addParameter("fin_sesion", sesion.getFin_sesion())
+                    .addParameter("id_sesion", Sesion.getId_sesion())
+                    .addParameter("id_usuario", Sesion.getId_usuario())
+                    .addParameter("inicio_sesion", Sesion.getInicio_sesion())
+                    .addParameter("fin_sesion", Sesion.getFin_sesion())
                     .executeUpdate();
-            return sesion;
+            return Sesion;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
 
-    public String update(Sesion sesion, id_sesion){
+    public String update(Sesion Sesion, id_sesion){
         try(Connection conn = sql2o.open()){
             String update = "UPDATE Sesion set id_sesion=:id_sesion, id_usuario=:id_usuario, inicio_sesion=:inicio_sesion, fin_sesion=:fin_sesion WHERE id_sesion:=id_sesion";
             conn.createQuery(updateSql)
