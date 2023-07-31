@@ -30,7 +30,7 @@ public class RestriccionRepositoryImp implements RestriccionRepository{
     @Override
     public String update(Restriccion Restriccion, Integer id_restriccion){
         try(Connection conn = sql2o.open()){
-            String updateSql = "update Reseña set id_restriccion=:id_restriccion, edad_minima=:edad_minima,WHERE id_restriccion=:id_restriccion";
+            String updateSql = "update Restriccion set id_restriccion=:id_restriccion, edad_minima=:edad_minima,WHERE id_restriccion=:id_restriccion";
             conn.createQuery(updateSql)
                     .addParameter("id_restriccion", id_restriccion)
                     .addParameter("edad_minima",Restriccion.getEdad_minima())
