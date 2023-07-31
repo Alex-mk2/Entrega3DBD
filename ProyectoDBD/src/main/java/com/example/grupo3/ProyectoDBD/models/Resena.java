@@ -2,14 +2,14 @@ package com.example.grupo3.ProyectoDBD.models;
 
 import java.util.Date;
 
-public class Reseña {
+public class Resena {
     private Integer id_usuario;
     private Integer id_libro;
     private Integer nota;
     private String descripcion;
     private Date fecha;
 
-    public Reseña(Integer id_usuario, Integer id_libro, Integer nota, String descripcion, Date fecha) {
+    public Resena(Integer id_usuario, Integer id_libro, Integer nota, String descripcion, Date fecha) {
         this.id_usuario = id_usuario;
         this.id_libro = id_libro;
         this.nota = nota;
