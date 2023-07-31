@@ -5,7 +5,6 @@ import com.example.grupo3.ProyectoDBD.models.Sesion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
-import org.sql2o.Query;
 import org.sql2o.Sql2o;
 import java.util.List;
 @Repository
@@ -22,7 +21,7 @@ public class SesionRepositoryImp implements SesionRepository {
             conn.createQuery(sql, true)
                     .addParameter("id_sesion", Sesion.getId_sesion())
                     .addParameter("id_usuario", Sesion.getId_usuario())
-                    .addParameter("inicio_sesion", Sesion.getInicio_sesion())
+                    .addParameter("inicio_sesion", Sesion.getComienzo_sesion())
                     .addParameter("fin_sesion", Sesion.getFin_sesion())
                     .executeUpdate();
             return Sesion;
@@ -39,7 +38,7 @@ public class SesionRepositoryImp implements SesionRepository {
             conn.createQuery(update)
                     .addParameter("id_sesion",id_sesion)
                     .addParameter("id_usuario",Sesion.getId_usuario())
-                    .addParameter("inicio_sesion",Sesion.getInicio_sesion())
+                    .addParameter("inicio_sesion",Sesion.getComienzo_sesion())
                     .addParameter("fin_sesion",Sesion.getFin_sesion())
                     .executeUpdate();
             return "Sesion actualizada";
