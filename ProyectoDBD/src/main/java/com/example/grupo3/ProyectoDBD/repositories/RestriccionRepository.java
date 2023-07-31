@@ -13,5 +13,5 @@ public interface RestriccionRepository {
 
     List<Restriccion> Show(Integer id_restriccion);
 
-    List<Restriccion> getAllReview();
+    List<Restriccion> getAllRestiction();
 }
