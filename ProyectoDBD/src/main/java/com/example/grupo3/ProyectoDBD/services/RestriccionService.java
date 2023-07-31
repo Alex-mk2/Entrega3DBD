@@ -4,6 +4,8 @@ import com.example.grupo3.ProyectoDBD.repositories.RestriccionRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin
+@RestController
 public class RestriccionService{
 
     private final com.example.grupo3.ProyectoDBD.repositories.RestriccionRepository restriccionRepository;
