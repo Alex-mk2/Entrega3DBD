@@ -17,9 +17,7 @@ public class Reseña {
         this.fecha = fecha;
     }
 
-    public Reseña() {
 
-    }
 
     public Integer getId_usuario() {
         return id_usuario;
@@ -37,7 +35,7 @@ public class Reseña {
         this.id_libro = id_libro;
     }
 
-    public Integer getNota() {
+    public int getNota() {
         return nota;
     }
 
