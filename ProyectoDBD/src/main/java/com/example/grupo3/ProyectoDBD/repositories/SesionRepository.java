@@ -1,7 +1,6 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
 import com.example.grupo3.ProyectoDBD.models.Sesion;
-
 import java.util.list;
 
 public interface SesionRepository {
