@@ -15,10 +15,10 @@ public class MetodoPagoRepositoryImp implements MetodoPagoRepository{
     @Override
     public Metodo_Pago create(Metodo_Pago MetodoPago) {
         try (Connection conn = sql2o.open()) {
-            String sql = "INTO metodo_pago (id_metodo_pago, tipo_pago) +
+            String sql = "INSERT INTO metodo_pago (id_metodo_pago, tipo_pago)" +
                     "VALUES (:id_metodo_pago, :tipo_pago)";
             conn.createQuery(sql, true)
-                    .addParameter("id_metodo_pago", MetodoPago.getId_metodo_pago()())
+                    .addParameter("id_metodo_pago", MetodoPago.getId_metodo_pago())
                     .addParameter("tipo_pago", MetodoPago.getTipo_pago())
                     .executeUpdate();
             return MetodoPago;
@@ -40,12 +40,13 @@ public class MetodoPagoRepositoryImp implements MetodoPagoRepository{
     }
 
     @Override
-    public Metodo_Pago show(Integer id_metodoPago) {
+    public List<Metodo_Pago> show(Integer id_metodo_pago) {
         try (Connection conn = sql2o.open()) {
             String sql = "SELECT * FROM metodo_pago WHERE id_metodo_pago = :id_metodo_pago";
             List<Metodo_Pago> result = conn.createQuery(sql)
-                    .addParameter("id_metodo_pago", id_metodoPago)
+                    .addParameter("id_metodo_pago", id_metodo_pago)
                     .executeAndFetch(Metodo_Pago.class);
+            return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -55,13 +56,12 @@ public class MetodoPagoRepositoryImp implements MetodoPagoRepository{
     @Override
     public String update(Metodo_Pago metodoPago, Integer id_metodoPago) {
         try (Connection conn = sql2o.open()) {
-            String sql = "UPDATE metodo_pago SET id_metodo_pago = :new_id_metodo_pago, tipo_pago = :tipo_pago WHERE id_metodo_pago = :id_metodo_pago";
-            int updatedRows = conn.createQuery(sql)
-                    .addParameter("new_id_metodo_pago", metodoPago.getId_metodo_pago())
+            String sql = "UPDATE metodo_pago SET tipo_pago = :tipo_pago WHERE id_metodo_pago = :id_metodo_pago";
+            conn.createQuery(sql)
                     .addParameter("tipo_pago", metodoPago.getTipo_pago())
                     .addParameter("id_metodo_pago", id_metodoPago)
                     .executeUpdate();
-
+            return "Metodo de pago actualizado";
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return "Error al actualizar el registro";

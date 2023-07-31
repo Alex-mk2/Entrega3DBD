@@ -1,16 +1,16 @@
 package com.example.grupo3.ProyectoDBD.models;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Sesion {
     int id_sesion;
     int id_usuario;
-    LocalDateTime inicio_sesion;
-    LocalDateTime fin_sesion;
+    Date comienzo_sesion;
+    Date fin_sesion;
 
-    public Sesion(int id_sesion, int id_usuario, LocalDateTime inicio_sesion, LocalDateTime fin_sesion) {
+    public Sesion(int id_sesion, int id_usuario, Date comienzo_sesion, Date fin_sesion) {
         this.id_sesion = id_sesion;
         this.id_usuario = id_usuario;
-        this.inicio_sesion = inicio_sesion;
+        this.comienzo_sesion = comienzo_sesion;
         this.fin_sesion = fin_sesion;
     }
 
@@ -30,19 +30,19 @@ public class Sesion {
         this.id_usuario = id_usuario;
     }
 
-    public LocalDateTime getInicio_sesion() {
-        return inicio_sesion;
+    public Date getComienzo_sesion() {
+        return comienzo_sesion;
     }
 
-    public void setInicio_sesion(LocalDateTime inicio_sesion) {
-        this.inicio_sesion = inicio_sesion;
+    public void setComienzo_sesion(Date comienzo_sesion) {
+        this.comienzo_sesion = comienzo_sesion;
     }
 
-    public LocalDateTime getFin_sesion() {
+    public Date getFin_sesion() {
         return fin_sesion;
     }
 
-    public void setFin_sesion(LocalDateTime fin_sesion) {
+    public void setFin_sesion(Date fin_sesion) {
         this.fin_sesion = fin_sesion;
     }
 }
