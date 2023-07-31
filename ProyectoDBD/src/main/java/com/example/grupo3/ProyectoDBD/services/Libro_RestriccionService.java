@@ -7,7 +7,6 @@ import java.util.List;
 public class Libro_RestriccionService{
     private final com.example.grupo3.ProyectoDBD.repositories.Libro_RestriccionRepository libro_restriccionRepository;
 
-
     Libro_RestriccionService(Libro_RestriccionRepository libroRestriccionRepository) {
         libro_restriccionRepository = libroRestriccionRepository;
     }

@@ -49,7 +49,7 @@ public class LibroRepositoryImp implements LibroRepository{
     @Override
     public List<Libro> show(Integer id_libro) {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("SELECT * FROM Libro WHERE id_boleta = :id_libro")
+            return conn.createQuery("SELECT * FROM Libro WHERE id_libro = :id_libro")
                     .addParameter("id_libro", id_libro)
                     .executeAndFetch(Libro.class);
         } catch (Exception e) {
@@ -63,7 +63,7 @@ public class LibroRepositoryImp implements LibroRepository{
         try (Connection conn = sql2o.open()) {
             conn.createQuery("UPDATE Libro " +
                             "SET autor=:autor, titulo=:titulo, precio=:precio, stock=:stock, visitas=:visitas, favoritos=:favoritos, id_usuario=:id_usuario " +
-                            "WHERE id_boleta=:id_libro")
+                            "WHERE id_libro=:id_libro")
                     .addParameter("id_libro", id_libro)
                     .addParameter("autor", libro.getAutor())
                     .addParameter("titulo", libro.getTitulo())

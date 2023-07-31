@@ -4,6 +4,8 @@ import com.example.grupo3.ProyectoDBD.repositories.RolRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin
+@RestController
 public class RolService{
     private final com.example.grupo3.ProyectoDBD.repositories.RolRepository rolRepository;
 
@@ -12,35 +14,35 @@ public class RolService{
     }
 
     //Crear Rol//
-    @PostMapping("/Rol/")
+    @PostMapping("/rol")
     @ResponseBody
     public Rol create(Rol Rol) {
         Rol newRol = rolRepository.create(Rol);
         return newRol;
     }
     //Mostrar todos los roles//
-    @GetMapping("/Rol")
+    @GetMapping("/rol")
     public List<Rol> getAllRol(){
         return rolRepository.getAllRol();
 
     }
     //Mostrar un rol//
-    @GetMapping("/Rol/{id_rol}")
-    public List<Rol> Show(@PathVariable Integer id_rol){
+    @GetMapping("/rol/{id_rol}")
+    public List<Rol> Show(@PathVariable int id_rol){
         return rolRepository.Show(id_rol);
     }
-    @PutMapping("/Rol/{id_rol}")
-    @ResponseBody
 
     //Actualizar Rol//
-    public String update(@RequestBody Rol Rol ,@PathVariable Integer id_rol){
+    @PutMapping("/rol/{id_rol}")
+    @ResponseBody
+    public String update(@RequestBody Rol Rol ,@PathVariable int id_rol){
         String newRol = rolRepository.update(Rol, id_rol);
         return newRol;
     }
 
     //Eliminar Rol//
-    @DeleteMapping("/Rol/{id_rol}")
-    public void delete(@PathVariable Integer id_rol){
+    @DeleteMapping("/rol/{id_rol}")
+    public void borrar(@PathVariable Integer id_rol){
         rolRepository.delete(id_rol);
     }
 }
