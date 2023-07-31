@@ -1,5 +1,6 @@
 package com.example.grupo3.ProyectoDBD.services;
 
+import com.example.grupo3.ProyectoDBD.models.Ubicacion;
 import com.example.grupo3.ProyectoDBD.models.Usuario;
 import com.example.grupo3.ProyectoDBD.repositories.UsuarioRepository;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,11 @@ public class UsuarioService {
     @GetMapping("/usuario")
     public List<Usuario> getAllUsuarios(){
         return usuarioRepository.getAll();
+    }
+
+    @PutMapping("/usuario/{id_usuario}/{id_ubicacion}")
+    @ResponseBody
+    public Usuario updateUsuario(@RequestBody Usuario usuario, @PathVariable Integer id_usuario,@PathVariable Integer id_ubicacion) {
+        return usuarioRepository.update(usuario, id_usuario, id_ubicacion);
     }
 }
