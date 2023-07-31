@@ -32,7 +32,7 @@ public interface ReseñaRepository{
     String update(Resena Resena, Integer id_usuario);
 
 
-    void delete(Integer id_usuario);
+    void delete(Integer id_usuario, Integer id_libro);
 
     List<Resena> Show(Integer id_usuario);
 

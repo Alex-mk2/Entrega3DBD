@@ -42,8 +42,8 @@ public class ReseñaService {
     }
 
     //Eliminar Reseña//
-    @DeleteMapping("/reseña/{id_usuario}")
-    public void delete(@PathVariable Integer id_usuario){
-        reseñaRepository.delete(id_usuario);
+    @DeleteMapping("/reseña/{id_usuario}/{id_libro}")
+    public void delete(@PathVariable Integer id_usuario, @PathVariable Integer id_libro){
+        reseñaRepository.delete(id_usuario, id_libro);
     }
 }

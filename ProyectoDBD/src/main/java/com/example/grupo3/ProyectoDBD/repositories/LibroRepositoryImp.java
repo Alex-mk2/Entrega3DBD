@@ -1,6 +1,5 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
-import com.example.grupo3.ProyectoDBD.models.Boleta;
 import com.example.grupo3.ProyectoDBD.models.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -49,6 +48,7 @@ public class LibroRepositoryImp implements LibroRepository{
     @Override
     public List<Libro> show(Integer id_libro) {
         try (Connection conn = sql2o.open()) {
+            aumentarVisitas(conn, id_libro);
             return conn.createQuery("SELECT * FROM Libro WHERE id_libro = :id_libro")
                     .addParameter("id_libro", id_libro)
                     .executeAndFetch(Libro.class);
@@ -110,6 +110,7 @@ public class LibroRepositoryImp implements LibroRepository{
     @Override
     public List<Libro> rankingFavoritos() {
         try (Connection conn = sql2o.open()) {
+
             return conn.createQuery("SELECT libro.titulo, COUNT(*) AS favoritos " +
                             "FROM Libro " +
                             "JOIN Lista_Favoritos ON Lista_Favoritos.id_libro = Libro.id_libro " +
@@ -119,6 +120,21 @@ public class LibroRepositoryImp implements LibroRepository{
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
+        }
+    }
+
+    private void aumentarVisitas(Connection conn, Integer id_libro) {
+        try{
+            int visitas = conn.createQuery("SELECT visitas FROM Libro WHERE id_libro = :id_libro")
+                    .addParameter("id_libro", id_libro)
+                    .executeScalar(Integer.class);
+
+            conn.createQuery("UPDATE Libro SET visitas = :nuevasVisitas WHERE id_libro = :id_libro")
+                    .addParameter("nuevasVisitas", visitas + 1)
+                    .addParameter("id_libro", id_libro)
+                    .executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }

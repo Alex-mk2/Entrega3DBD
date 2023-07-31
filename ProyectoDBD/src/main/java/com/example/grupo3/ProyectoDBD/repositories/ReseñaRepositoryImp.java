@@ -51,10 +51,11 @@ public class ReseñaRepositoryImp implements ReseñaRepository {
         }
     }
     @Override
-    public void delete(Integer id_usuario){
+    public void delete(Integer id_usuario, Integer id_libro){
         try(Connection conn = sql2o.open()){
-            conn.createQuery("DELETE from Resena where id_usuario =: id_usuario")
+            conn.createQuery("DELETE from Resena where id_usuario =: id_usuario AND id_libro:id_libro")
                     .addParameter("id_usuario", id_usuario)
+                    .addParameter("id_libro", id_libro)
                     .executeUpdate();
         }catch (Exception e){
             System.out.println(e.getMessage());
