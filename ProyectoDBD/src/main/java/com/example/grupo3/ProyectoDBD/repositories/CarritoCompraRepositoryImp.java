@@ -35,7 +35,7 @@ public class CarritoCompraRepositoryImp implements CarritoCompraRepository {
     @Override
     public List<CarritoCompra> getAll() {
         try (Connection conn = sql2o.open()) {
-            return conn.createQuery("SELEC * FROM CarritoCompra ORDER BY fecha_creacion ASC")
+            return conn.createQuery("SELECT * FROM CarritoCompra ORDER BY fecha_creacion ASC")
                     .executeAndFetch(CarritoCompra.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
