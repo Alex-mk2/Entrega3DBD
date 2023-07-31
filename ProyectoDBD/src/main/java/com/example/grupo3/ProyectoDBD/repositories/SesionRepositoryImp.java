@@ -1,3 +1,4 @@
+
 package com.example.grupo3.ProyectoDBD.repositories;
 
 import com.example.grupo3.ProyectoDBD.models.Sesion;
@@ -31,10 +32,11 @@ public class SesionRepositoryImp implements SesionRepository {
         }
     }
 
-    public String update(Sesion Sesion, id_sesion){
+    @Override
+    public String update(Sesion Sesion, int id_sesion){
         try(Connection conn = sql2o.open()){
             String update = "UPDATE Sesion set id_sesion=:id_sesion, id_usuario=:id_usuario, inicio_sesion=:inicio_sesion, fin_sesion=:fin_sesion WHERE id_sesion:=id_sesion";
-            conn.createQuery(updateSql)
+            conn.createQuery(update)
                     .addParameter("id_sesion",id_sesion)
                     .addParameter("id_usuario",Sesion.getId_usuario())
                     .addParameter("inicio_sesion",Sesion.getInicio_sesion())
@@ -58,6 +60,7 @@ public class SesionRepositoryImp implements SesionRepository {
         }
     }
 
+    @Override
     public List<Sesion> show(int id_sesion){
         try(Connection conn = sql2o.open()) {
             return conn.createQuery("SELECT * FROM Sesion WHERE id_sesion:=id_sesion")
@@ -69,6 +72,7 @@ public class SesionRepositoryImp implements SesionRepository {
         }
     }
 
+    @Override
     public void delete(int id_sesion){
         try(Connection conn = sql2o.open()){
             conn.createQuery("DELETE from Sesion WHERE id_sesion=:id_sesion")
@@ -76,7 +80,7 @@ public class SesionRepositoryImp implements SesionRepository {
                     .executeAndFetch(Sesion.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
-            return null;
         }
     }
 }
+
