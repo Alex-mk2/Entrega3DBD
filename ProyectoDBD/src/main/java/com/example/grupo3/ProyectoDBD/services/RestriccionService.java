@@ -26,11 +26,11 @@ public class RestriccionService{
 
     }
     //Mostrar una restriccion//
-    @GetMapping("/Reseña/{id_restriccion}")
+    @GetMapping("/Restriccion/{id_restriccion}")
     public List<Restriccion> Show(@PathVariable Integer id_restriccion){
         return restriccionRepository.Show(id_restriccion);
     }
-    @PutMapping("/Reseña/{id_restriccion}")
+    @PutMapping("/Restriccion/{id_restriccion}")
     @ResponseBody
 
     //Actualizar Restriccion//
@@ -40,7 +40,7 @@ public class RestriccionService{
     }
 
     //Eliminar Restriccion//
-    @DeleteMapping("/Reseña/{id_restriccion}")
+    @DeleteMapping("/Restriccion/{id_restriccion}")
     public void delete(@PathVariable Integer id_restriccion){
         restriccionRepository.delete(id_restriccion);
     }
