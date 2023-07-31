@@ -1,5 +1,5 @@
 package com.example.grupo3.ProyectoDBD.services;
-import com.example.grupo3.ProyectoDBD.models.Reseña;
+import com.example.grupo3.ProyectoDBD.models.Resena;
 import com.example.grupo3.ProyectoDBD.repositories.ReseñaRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -17,27 +17,27 @@ public class ReseñaService {
     //Crear Reseña//
     @PostMapping("/Reseña/")
     @ResponseBody
-    public Reseña create(Reseña Reseña) {
-        Reseña newReseña = reseñaRepository.create(Reseña);
-        return newReseña;
+    public Resena create(Resena Resena) {
+        Resena newResena = reseñaRepository.create(Resena);
+        return newResena;
     }
     //Mostrar todas las reseñas//
     @GetMapping("/Reseña")
-    public List<Reseña> getAllReview(){
+    public List<Resena> getAllReview(){
         return reseñaRepository.getAllReview();
 
     }
     //Mostrar una reseña//
     @GetMapping("/Reseña/{id_usuario}")
-    public List<Reseña> Show(@PathVariable Integer id_usuario){
+    public List<Resena> Show(@PathVariable Integer id_usuario){
         return reseñaRepository.Show(id_usuario);
     }
     @PutMapping("/Reseña/{id_usuario}")
     @ResponseBody
 
     //Actualizar Reseña//
-    public String update(@RequestBody Reseña Reseña ,@PathVariable Integer id_usuario){
-        String newReseña = reseñaRepository.update(Reseña, id_usuario);
+    public String update(@RequestBody Resena Resena, @PathVariable Integer id_usuario){
+        String newReseña = reseñaRepository.update(Resena, id_usuario);
         return newReseña;
     }
 

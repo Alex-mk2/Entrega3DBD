@@ -1,6 +1,6 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
-import com.example.grupo3.ProyectoDBD.models.Reseña;
+import com.example.grupo3.ProyectoDBD.models.Resena;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
@@ -14,18 +14,18 @@ public class ReseñaRepositoryImp implements ReseñaRepository {
     private Sql2o sql2o;
 
     @Override
-    public Reseña create(Reseña Reseña) {
+    public Resena create(Resena Resena) {
         try (Connection conn = sql2o.open()) {
             String sql = "INSERT INTO Reseña (id_usuario,id_libro, nota, descripcion, fecha)" +
                     "VALUES (:id_usuario, :id_libro, :nota, :descripcion, :fecha)";
             conn.createQuery(sql, true)
-                    .addParameter("id_usuario", Reseña.getId_usuario())
-                    .addParameter("id_libro", Reseña.getId_libro())
-                    .addParameter("nota", Reseña.getNota())
-                    .addParameter("descripcion", Reseña.getDescripcion())
-                    .addParameter("fecha", Reseña.getFecha())
+                    .addParameter("id_usuario", Resena.getId_usuario())
+                    .addParameter("id_libro", Resena.getId_libro())
+                    .addParameter("nota", Resena.getNota())
+                    .addParameter("descripcion", Resena.getDescripcion())
+                    .addParameter("fecha", Resena.getFecha())
                     .executeUpdate();
-            return (Reseña);
+            return (Resena);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -33,15 +33,15 @@ public class ReseñaRepositoryImp implements ReseñaRepository {
     }
 
     @Override
-    public String update(Reseña Reseña, Integer id_usuario){
+    public String update(Resena Resena, Integer id_usuario){
         try(Connection conn = sql2o.open()){
             String updateSql = "update Reseña set id_usuario=:id_usuario, id_libro=:id_libro, nota=:nota, descripcion=:descripcion, fecha=:fecha WHERE id_usuario=:id_usuario ";
             conn.createQuery(updateSql)
                     .addParameter("id_usuario", id_usuario)
-                    .addParameter("id_libro", Reseña.getId_libro())
-                    .addParameter("nota", Reseña.getNota())
-                    .addParameter("descripcion", Reseña.getDescripcion())
-                    .addParameter("fecha", Reseña.getFecha())
+                    .addParameter("id_libro", Resena.getId_libro())
+                    .addParameter("nota", Resena.getNota())
+                    .addParameter("descripcion", Resena.getDescripcion())
+                    .addParameter("fecha", Resena.getFecha())
                     .executeUpdate();
             return "Reseña actualizada";
 
@@ -62,11 +62,11 @@ public class ReseñaRepositoryImp implements ReseñaRepository {
         }
     }
     @Override
-    public List<Reseña> Show(Integer id_usuario){
+    public List<Resena> Show(Integer id_usuario){
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * FROM Reseña WHERE id_usuario=:id_usuario")
                     .addParameter("id_usuario", id_usuario)
-                    .executeAndFetch(Reseña.class);
+                    .executeAndFetch(Resena.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return null;
@@ -74,10 +74,10 @@ public class ReseñaRepositoryImp implements ReseñaRepository {
     }
 
     @Override
-    public List<Reseña> getAllReview(){
+    public List<Resena> getAllReview(){
         try(Connection conn = sql2o.open()){
             return conn.createQuery("SELECT * FROM Reseña ORDER BY nota ASC")
-                    .executeAndFetch(Reseña.class);
+                    .executeAndFetch(Resena.class);
         }catch (Exception e){
             System.out.println(e.getMessage());
             return null;
