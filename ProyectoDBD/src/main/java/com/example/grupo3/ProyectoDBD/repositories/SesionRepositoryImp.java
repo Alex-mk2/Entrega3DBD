@@ -1,6 +1,4 @@
-
 package com.example.grupo3.ProyectoDBD.repositories;
-
 import com.example.grupo3.ProyectoDBD.models.Sesion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
