@@ -4,7 +4,8 @@ import com.example.grupo3.ProyectoDBD.models.Reseña;
 
 import java.util.List;
 
-public interface ReseñaRepository {
+public interface ReseñaRepository{
+
     /**
      * Inserta una reseña en la tabla reseña
      * al ser atributos obligatorios (menos id), si son nulos se lanzara una excepcion si no encuentra el id
