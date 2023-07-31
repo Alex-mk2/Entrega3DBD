@@ -17,8 +17,6 @@ public class Reseña {
         this.fecha = fecha;
     }
 
-
-
     public Integer getId_usuario() {
         return id_usuario;
     }

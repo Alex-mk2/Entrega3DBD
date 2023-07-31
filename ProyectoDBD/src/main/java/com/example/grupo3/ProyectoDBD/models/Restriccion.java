@@ -9,10 +9,6 @@ public class Restriccion {
         this.edad_minima = edad_minima;
     }
 
-    public Restriccion() {
-
-    }
-
     public Integer getId_restriccion() {
         return id_restriccion;
     }
