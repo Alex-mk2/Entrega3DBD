@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+!/src/main/java/com/example/grupo3/ProyectoDBD/repositories/DatabaseContext.java
+!/src/main/resources/application.properties
+!/src/main/resources/application.properties
+!/src/main/resources/application.properties
+!/src/main/java/com/example/grupo3/ProyectoDBD/repositories/DatabaseContext.java

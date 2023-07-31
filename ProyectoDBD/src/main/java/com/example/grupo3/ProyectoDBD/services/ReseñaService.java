@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class ReseñaService{
+public class ReseñaService {
     private final com.example.grupo3.ProyectoDBD.repositories.ReseñaRepository reseñaRepository;
+
     ReseñaService(ReseñaRepository reseñaRepository) {
         this.reseñaRepository = reseñaRepository;
     }
@@ -19,7 +20,7 @@ public class ReseñaService{
     //Crear Reseña//
     @PostMapping("/Reseña/")
     @ResponseBody
-    public Reseña create(Reseña Reseña){
+    public Reseña create(Reseña Reseña) {
         Reseña newReseña = reseñaRepository.create(Reseña);
         return newReseña;
     }
