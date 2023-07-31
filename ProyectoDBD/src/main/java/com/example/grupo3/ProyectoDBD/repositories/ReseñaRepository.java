@@ -2,6 +2,8 @@ package com.example.grupo3.ProyectoDBD.repositories;
 
 import com.example.grupo3.ProyectoDBD.models.Reseña;
 
+import java.util.List;
+
 public interface ReseñaRepository {
     /**
      * Inserta una reseña en la tabla reseña
@@ -29,4 +31,9 @@ public interface ReseñaRepository {
     String update(Reseña Reseña, Integer id_usuario);
 
 
+    void delete(Integer id_usuario);
+
+    List<Reseña> Show(Integer id_usuario);
+
+    List<Reseña> getAllReview();
 }
