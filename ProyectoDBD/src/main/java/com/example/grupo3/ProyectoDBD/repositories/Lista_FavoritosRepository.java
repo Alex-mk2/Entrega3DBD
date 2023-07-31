@@ -15,7 +15,4 @@ public interface Lista_FavoritosRepository {
     public String update(Lista_Favoritos listaFavoritos, Integer id_usuario, Integer id_libro);
 
     public void delete(Integer id_usuario, Integer id_libro);
-
-    // RANKING FAVORITOS
-    public List<Libro>rankingFavoritos();
 }

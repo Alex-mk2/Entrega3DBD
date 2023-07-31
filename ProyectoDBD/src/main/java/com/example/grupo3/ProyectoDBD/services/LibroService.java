@@ -46,4 +46,14 @@ public class LibroService {
     public void borrar(@PathVariable Integer id_libro) {
         libroRepository.delete(id_libro);
     }
+
+    // RANKINGS
+    @GetMapping("/libro/favoritos")
+    public List<Libro> getRankingFavoritos() {
+        return libroRepository.rankingFavoritos();
+    }
+    @GetMapping("/libro/visitas")
+    public List<Libro> getRankingVisitas() {
+        return libroRepository.rankingVisitas();
+    }
 }

@@ -15,4 +15,8 @@ public interface LibroRepository {
     public String update(Libro libro, Integer id_libro);
 
     public void delete(Integer id_libro);
+
+    public List<Libro> rankingVisitas();
+
+    public List<Libro> rankingFavoritos();
 }

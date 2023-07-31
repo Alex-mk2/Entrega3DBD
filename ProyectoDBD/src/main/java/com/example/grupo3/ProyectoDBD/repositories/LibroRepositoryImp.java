@@ -90,4 +90,35 @@ public class LibroRepositoryImp implements LibroRepository{
             System.out.println(e.getMessage());
         }
     }
+
+
+    // RANKINGS
+
+    @Override
+    public List<Libro> rankingVisitas() {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT libro.titulo, libro.visitas AS visitas " +
+                            "FROM Libro " +
+                            "ORDER BY visitas DESC")
+                    .executeAndFetch(Libro.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<Libro> rankingFavoritos() {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT libro.titulo, COUNT(*) AS favoritos " +
+                            "FROM Libro " +
+                            "JOIN Lista_Favoritos ON Lista_Favoritos.id_libro = Libro.id_libro " +
+                            "GROUP BY Lista_Favoritos.id_libro, Libro.titulo " +
+                            "ORDER BY favoritos DESC")
+                    .executeAndFetch(Libro.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 }

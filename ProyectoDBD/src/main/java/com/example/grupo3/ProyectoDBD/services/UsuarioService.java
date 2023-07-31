@@ -29,7 +29,7 @@ public class UsuarioService {
     }
 
     @GetMapping("/usuario/{id_usuario}")
-    public List<Usuario> getCarritoById(@PathVariable Integer id_usuario) {
+    public List<Usuario> getUsuarioById(@PathVariable Integer id_usuario) {
         return usuarioRepository.show(id_usuario);
     }
 
@@ -39,7 +39,7 @@ public class UsuarioService {
         return usuarioRepository.update(usuario, id_usuario, id_ubicacion);
     }
 
-    @GetMapping("/usuario/{id_usuario}")
+    @GetMapping("/usuario/login/{correo}/{contrasena}")
     public List<Usuario> login(@PathVariable String correo, @PathVariable String contrasena) {
         return usuarioRepository.login(correo, contrasena);
     }

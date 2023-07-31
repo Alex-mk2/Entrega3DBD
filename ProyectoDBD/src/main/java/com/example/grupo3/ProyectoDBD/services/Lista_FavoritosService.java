@@ -48,9 +48,4 @@ public class Lista_FavoritosService {
     public void borrar(@PathVariable Integer id_usuario,  @PathVariable Integer id_libro) {
         listaFavoritosRepository.delete(id_usuario, id_libro);
     }
-
-    @GetMapping("/lista_favoritos/ranking")
-    public List<Libro> getRankingFavoritos() {
-        return listaFavoritosRepository.rankingFavoritos();
-    }
 }
