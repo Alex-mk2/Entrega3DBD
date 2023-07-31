@@ -10,5 +10,10 @@ public interface UsuarioRepository {
 
     public List<Usuario>getAll();
 
+    public List<Usuario>show(Integer id_usuario);
+
     public Usuario update(Usuario usuario, Integer id_usuario,Integer id_ubicacion);
+
+    // login
+    public List<Usuario> login(String correo, String contrasena);
 }

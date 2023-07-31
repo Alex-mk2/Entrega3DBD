@@ -1,5 +1,6 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
+import com.example.grupo3.ProyectoDBD.models.Libro;
 import com.example.grupo3.ProyectoDBD.models.Libro_Carrito;
 import com.example.grupo3.ProyectoDBD.models.Lista_Favoritos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,21 @@ public class Lista_FavoritosRespositoryImp implements Lista_FavoritosRepository 
                     .executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Libro> rankingFavoritos() {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT libro.titulo, COUNT(*) AS favoritos " +
+                            "FROM Lista_Favoritos " +
+                            "JOIN Libro ON Lista_Favoritos.id_libro = Libro.id_libro " +
+                            "GROUP BY Lista_Favoritos.id_libro, Libro.titulo " +
+                            "ORDER BY favoritos DESC")
+                    .executeAndFetch(Libro.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

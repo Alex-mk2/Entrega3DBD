@@ -1,6 +1,5 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
-import com.example.grupo3.ProyectoDBD.models.Categoria_Libro;
 import com.example.grupo3.ProyectoDBD.models.Libro_Carrito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

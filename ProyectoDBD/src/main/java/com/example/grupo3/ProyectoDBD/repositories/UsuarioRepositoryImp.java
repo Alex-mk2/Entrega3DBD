@@ -1,5 +1,6 @@
 package com.example.grupo3.ProyectoDBD.repositories;
 
+import com.example.grupo3.ProyectoDBD.models.Libro;
 import com.example.grupo3.ProyectoDBD.models.Ubicacion;
 import com.example.grupo3.ProyectoDBD.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +48,18 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
         }
     }
 
-    /*
-    "INSERT INTO Usuario (id_usuario,nombre, correo, contrasena, telefono, fecha_nacimiento, id_ubicacion)" +
-                    "VALUES (:id_usuario,:nombre,:correo,:contrasena,:telefono, :fecha_necimiento, :id_ubicacion)";
-    */
+    @Override
+    public List<Usuario> show(Integer id_usuario) {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT * FROM Libro WHERE id_usuario = :id_usuario")
+                    .addParameter("id_usuario", id_usuario)
+                    .executeAndFetch(Usuario.class);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     @Override
     public Usuario update(Usuario usuario, Integer id_usuario,Integer id_ubicacion) {
         try (Connection conn = sql2o.open()) {
@@ -66,6 +75,19 @@ public class UsuarioRepositoryImp implements UsuarioRepository {
                     .addParameter("id_ubicacion", id_ubicacion)
                     .executeUpdate();
             return usuario;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public List<Usuario> login(String correo, String contrasena) {
+        try (Connection conn = sql2o.open()) {
+            return conn.createQuery("SELECT * FROM Usuario WHERE correo =:correo AND contrasena =:contrasena")
+                    .addParameter("correo", correo)
+                    .addParameter("contrasena", contrasena)
+                    .executeAndFetch(Usuario.class);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

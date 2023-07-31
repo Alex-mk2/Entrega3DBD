@@ -1,5 +1,6 @@
 package com.example.grupo3.ProyectoDBD.services;
 
+import com.example.grupo3.ProyectoDBD.models.Libro;
 import com.example.grupo3.ProyectoDBD.models.Lista_Favoritos;
 import com.example.grupo3.ProyectoDBD.repositories.Lista_FavoritosRepository;
 import org.springframework.web.bind.annotation.*;
@@ -46,5 +47,10 @@ public class Lista_FavoritosService {
     @DeleteMapping("/lista_favoritos/{id_usuario}/{id_libro}")
     public void borrar(@PathVariable Integer id_usuario,  @PathVariable Integer id_libro) {
         listaFavoritosRepository.delete(id_usuario, id_libro);
+    }
+
+    @GetMapping("/lista_favoritos/ranking")
+    public List<Libro> getRankingFavoritos() {
+        return listaFavoritosRepository.rankingFavoritos();
     }
 }
