@@ -14,6 +14,8 @@ public interface UsuarioRepository {
 
     public Usuario update(Usuario usuario, Integer id_usuario,Integer id_ubicacion);
 
+    public void delete(int id_usuario);
+
     // login
     public List<Usuario> login(String correo, String contrasena);
 }

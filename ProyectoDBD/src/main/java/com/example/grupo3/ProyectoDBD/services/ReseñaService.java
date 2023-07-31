@@ -15,24 +15,24 @@ public class ReseñaService {
 
 
     //Crear Reseña//
-    @PostMapping("/Reseña/")
+    @PostMapping("/reseña")
     @ResponseBody
     public Resena create(Resena Resena) {
         Resena newResena = reseñaRepository.create(Resena);
         return newResena;
     }
     //Mostrar todas las reseñas//
-    @GetMapping("/Reseña")
+    @GetMapping("/reseña")
     public List<Resena> getAllReview(){
         return reseñaRepository.getAllReview();
 
     }
     //Mostrar una reseña//
-    @GetMapping("/Reseña/{id_usuario}")
+    @GetMapping("/reseña/{id_usuario}")
     public List<Resena> Show(@PathVariable Integer id_usuario){
         return reseñaRepository.Show(id_usuario);
     }
-    @PutMapping("/Reseña/{id_usuario}")
+    @PutMapping("/reseña/{id_usuario}")
     @ResponseBody
 
     //Actualizar Reseña//
@@ -42,7 +42,7 @@ public class ReseñaService {
     }
 
     //Eliminar Reseña//
-    @DeleteMapping("/Reseña/{id_usuario}")
+    @DeleteMapping("/reseña/{id_usuario}")
     public void delete(@PathVariable Integer id_usuario){
         reseñaRepository.delete(id_usuario);
     }

@@ -4,6 +4,8 @@ import com.example.grupo3.ProyectoDBD.repositories.Libro_RestriccionRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin
+@RestController
 public class Libro_RestriccionService{
     private final com.example.grupo3.ProyectoDBD.repositories.Libro_RestriccionRepository libro_restriccionRepository;
 

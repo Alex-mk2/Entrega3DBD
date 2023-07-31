@@ -33,12 +33,19 @@ public class UsuarioService {
         return usuarioRepository.show(id_usuario);
     }
 
+    @DeleteMapping("/usuario/{id_usuario}")
+    public void delete(@PathVariable Integer id_usuario){
+        usuarioRepository.delete(id_usuario);
+    }
+
+    // CAMBIAR UBICACION USUARIO
     @PutMapping("/usuario/{id_usuario}/{id_ubicacion}")
     @ResponseBody
     public Usuario updateUsuario(@RequestBody Usuario usuario, @PathVariable Integer id_usuario,@PathVariable Integer id_ubicacion) {
         return usuarioRepository.update(usuario, id_usuario, id_ubicacion);
     }
 
+    // LOGIN
     @GetMapping("/usuario/login/{correo}/{contrasena}")
     public List<Usuario> login(@PathVariable String correo, @PathVariable String contrasena) {
         return usuarioRepository.login(correo, contrasena);

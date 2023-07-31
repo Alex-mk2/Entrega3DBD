@@ -43,8 +43,8 @@ public class SesionService {
     }
 
     //Eliminar
-    @DeleteMapping("/Rol/{id_rol}")
-    public void delete(@PathVariable Integer id_rol){
-        sesionRepository.delete(id_rol);
+    @DeleteMapping("/sesion/{id_sesion}")
+    public void delete(@PathVariable Integer id_sesion){
+        sesionRepository.delete(id_sesion);
     }
 }

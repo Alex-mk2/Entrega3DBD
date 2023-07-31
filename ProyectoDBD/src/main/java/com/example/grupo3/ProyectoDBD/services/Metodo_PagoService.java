@@ -4,6 +4,8 @@ import com.example.grupo3.ProyectoDBD.repositories.MetodoPagoRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin
+@RestController
 public class Metodo_PagoService{
     private final com.example.grupo3.ProyectoDBD.repositories.MetodoPagoRepository metodoPagoRepository;
 
@@ -13,24 +15,24 @@ public class Metodo_PagoService{
 
 
     //Crear Metodo de pago//
-    @PostMapping("/Metodo_Pago/")
+    @PostMapping("/metodo_pago")
     @ResponseBody
     public Metodo_Pago create(Metodo_Pago Metodo_Pago) {
         Metodo_Pago newMetodoPago = metodoPagoRepository.create(Metodo_Pago);
         return newMetodoPago;
     }
     //Mostrar todas los metodos de pago//
-    @GetMapping("/Metodo de pago")
+    @GetMapping("/metodo_pago")
     public List<Metodo_Pago> getAll(){
         return metodoPagoRepository.getAll();
 
     }
     //Mostrar una metodo de pago//
-    @GetMapping("/Metodo_Pago/{id_metodo_pago}")
+    @GetMapping("/metodo_pago/{id_metodo_pago}")
     public List<Metodo_Pago> Show(@PathVariable Integer id_metodo_pago){
         return metodoPagoRepository.show(id_metodo_pago);
     }
-    @PutMapping("/Metodo_Pago/{id_metodo_pago}")
+    @PutMapping("/metodo_pago/{id_metodo_pago}")
     @ResponseBody
 
     //Actualizar Metodo pago//
@@ -40,7 +42,7 @@ public class Metodo_PagoService{
     }
 
     //Eliminar Metodo de pago//
-    @DeleteMapping("/Metodo_Pago/{id_metodo_pago}")
+    @DeleteMapping("/metodo_pago/{id_metodo_pago}")
     public void delete(@PathVariable Integer id_metodo_pago){
         metodoPagoRepository.delete(id_metodo_pago);
     }
